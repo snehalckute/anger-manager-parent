@@ -1,0 +1,112 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.brainwave-main</groupId>
+		<artifactId>anger-manager-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<groupId>com.brainwave-main-multi</groupId>
+	<artifactId>anger-manager-parent-multi</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>anger-manager-parent-multi</name>
+	<description>anger-manager-parent-multi</description>
+	<packaging>pom</packaging>
+	<inceptionYear>2018</inceptionYear>
+
+	<properties>
+		<hikari-version>2.6.0</hikari-version>
+		<java-mail-version>1.5.5</java-mail-version>
+		<mongo-driver-version>3.6.4</mongo-driver-version>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-parent</artifactId>
+				<version>${spring-boot-version}</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-web</artifactId>
+				<version>${spring-boot-version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-data-jpa</artifactId>
+				<version>${spring-boot-version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.apache.tomcat</groupId>
+						<artifactId>tomcat-jdbc</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<!-- Oracle JDBC driver -->
+			<dependency>
+				<groupId>com.oracle</groupId>
+				<artifactId>ojdbc6</artifactId>
+				<version>${oracle-ojdbc6-version}</version>
+			</dependency>
+			<!-- HikariCP connection pool -->
+			<dependency>
+				<groupId>com.zaxxer</groupId>
+				<artifactId>HikariCP</artifactId>
+				<version>${hikari-version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.sun.mail</groupId>
+				<artifactId>javax.mail</artifactId>
+				<version>${java-mail-version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter</artifactId>
+				<version>${spring-boot-version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mongodb</groupId>
+				<artifactId>mongo-java-driver</artifactId>
+				<version>${mongo-driver-version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+
+
+
+
+
+	<dependencies>
+		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-parent</artifactId> 
+			<scope>import</scope> <type>pom</type> </dependency> -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${spring-boot-version}</version>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
